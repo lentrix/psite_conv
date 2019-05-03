@@ -16,6 +16,9 @@
             </div>
             <button id="start" type="button">Start</button>
             <button type="submit">Confirm</button>
+            <span class="w3-right">
+                Potential winners {{$users->count()}}
+            </span>
         </form>
     </div>
 </div>

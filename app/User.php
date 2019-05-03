@@ -59,7 +59,8 @@ class User extends Authenticatable
 
     public static function nonWinners() {
         return DB::table('users')
-            ->whereRaw('id NOT IN (SELECT user_id FROM raffles WHERE user_id<>NULL)')->get();
+            ->whereRaw('id NOT IN (SELECT user_id FROM raffles WHERE user_id IS NOT NULL)')
+            ->where('active',1)->get();
     }
 
     public function nominations() {
@@ -83,7 +84,7 @@ class User extends Authenticatable
     }
 
     public static function candidates() {
-        return static::whereRaw('id IN (SELECT nominee FROM nominations)')
+        return static::where('candidate',1)
             ->where('active', 1)
             ->orderByRaw('lname, fname')
             ->get();

@@ -24,7 +24,7 @@
             <tbody>
                 @foreach($users as $index=>$user)
 
-                <tr>
+                <tr class="{{$user->active?'w3-light-gray':''}}"}}>
                     <td>{{$index+1}}.</td>
                     <td>{{$user->fullName()}}</td>
                     <td>{{$user->designation}}</td>

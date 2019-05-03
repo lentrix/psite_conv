@@ -28,7 +28,7 @@
                         <span style="font-size: 0.75em">from {{$winner->sponsor}}</span>
                     </td>
                     <td>
-                        {{$winner->drawn_on}}
+                        {{$winner->drawn_on->diffForHumans()}}
                     </td>
                 </tr>
                 @endforeach
